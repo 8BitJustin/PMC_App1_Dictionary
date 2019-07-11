@@ -4,8 +4,10 @@ data = json.load(open("data.json"))
 
 def dict_search():
     search = input("Word to search for: ")
-    for k,v in data.items():
-        if search == k:
-            print(v)
+    search = search.lower()
+    if search in data:
+        return data[search]
+    else:
+        return "Word doesn't exist within dictionary."
 
-dict_search()
+print(dict_search())
